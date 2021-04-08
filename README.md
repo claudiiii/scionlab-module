@@ -33,32 +33,33 @@ services.scionlab = {
 To start using SCION you first need to start the VPN (if configured).
 
 ``` sh
-systemctl start openvpn-scionlabVPN
+$ systemctl start openvpn-scionlabVPN
 ```
 
 And finally the SCIONLab services.
 
 ``` sh
-systemctl start scionlab
+$ systemctl start scionlab
 ```
 
 Now everything should work. You can test that by showing the paths to a different AS.
 
 ``` sh
-scion showpaths 17-ffaa:0:1107
+$ scion showpaths 17-ffaa:0:1107
 ```
 
 ## Using the VM
 
 It's also possible to build a VM from the `test-vm.nix` configuration.
-Run the following snipped in the root of the repository.
+First you need to fill in the TODOs at the top of the file with the paths to your AS config.
+Then to build the VM run the following snipped in the root of the repository.
 
 ``` sh
-nix-build '<nixpkgs/nixos>' -A vm --arg configuration ./test-vm.nix --show-trace
+$ nix-build '<nixpkgs/nixos>' -A vm --arg configuration ./test-vm.nix --show-trace
 ```
 
-The resulting vm can be started with:
+The resulting VM can then be started.
 
 ``` sh
-./result/bin/run-nixos-vm
+$ ./result/bin/run-nixos-vm
 ```
