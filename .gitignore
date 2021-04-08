@@ -1,0 +1,10 @@
+.DS_Store
+.idea
+*.log
+tmp/
+
+*~
+result*
+scion_lab_config*/
+test-config*.nix
+*.qcow2
