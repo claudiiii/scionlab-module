@@ -12,5 +12,5 @@ jobs:
     - uses: cachix/install-nix-action@v13
       with:
         nix_path: nixpkgs=channel:nixos-unstable
-    - run: nix-build "<nixpkgs/nixos>" -A vm --arg configuration ./tests/test-config.nix --show-trace
+    - run: nix-build "<nixpkgs/nixos>" -A vm --arg configuration ./tests/config.nix --show-trace
     - run: nix-shell --run "echo OK"
