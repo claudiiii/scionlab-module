@@ -10,5 +10,13 @@
     };
 
     environment.systemPackages = [ pkgs.scion-apps ];
+
+    services.scionlab = {
+      enable = true;
+      vpn = true;
+      # Dummy values
+      asConfigPath = "/etc/scion";
+      vpnConfigFile = "/etc/scion/openvpn.con";
+    };
   };
 }
