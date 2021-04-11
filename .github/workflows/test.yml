@@ -1,0 +1,16 @@
+name: "Test Module"
+on:
+  pull_request:
+  push:
+  schedule:
+    - cron: "0 4 * * 1"
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2.3.4
+    - uses: cachix/install-nix-action@v13
+      with:
+        nix_path: nixpkgs=channel:nixos-unstable
+    - run: nix-build "<nixpkgs/nixos>" -A vm --arg configuration ./tests/test-config.nix --show-trace
+    - run: nix-shell --run "echo OK"
