@@ -7,9 +7,19 @@ Deploy a SCION AS with the help of [SCIONLab](https://www.scionlab.org/) and [Ni
 To use the module simply checkout the repository and import it in your NixOS config.
 
 ``` nix
-...
-imports = [ /path/to/scionlab ];
-...
+imports = [ /path/to/scionlab-module ];
+```
+
+Or, fetch it directly from GitHub:
+
+``` nix
+imports = [
+  (builtins.fetchTarball {
+    url = "https://github.com/claudiiii/scionlab-module/archive/main.tar.gz";
+    # This hash needs to be updated
+    sha256 = lib.fakeSha256;
+  })
+];
 ```
 
 ## Getting started
