@@ -12,4 +12,10 @@ jobs:
     - uses: cachix/install-nix-action@v13
       with:
         nix_path: nixpkgs=channel:nixos-unstable
+    - uses: cachix/cachix-action@v10
+      with:
+        name: scionlab-module
+        authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+    - name: nixpkgs version
+      run: nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'
     - run: nix-build "<nixpkgs/nixos>" -A vm --arg configuration ./tests/config.nix --show-trace

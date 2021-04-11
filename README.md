@@ -22,6 +22,8 @@ imports = [
 ];
 ```
 
+You can also use the [Cachix binary cache](https://app.cachix.org/cache/scionlab-module) if building the packages is not possible. 
+
 ## Getting started
 
 First you need to register an AS on the [SCIONLab website](https://www.scionlab.org/user/) and download the configuration files.
