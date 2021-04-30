@@ -166,6 +166,7 @@ in
     users.users.scion = {
       description = "SCION daemon user";
       group = "scion";
+      isSystemUser = true;
       # uid = config.ids.uids.scion;
     };
 
